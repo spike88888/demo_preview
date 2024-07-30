@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REFFLY: A Style-Transfer Model for Lyrics Generation</title>
+    <style>
+      body {
+        font-family: Helvetica;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+      }
+      .container {
+        width: 85%;
+        margin: auto;
+        overflow: hidden;
+        padding: 20px;
+        background-color: white;
+        margin-top: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .intro-index {
+        display: flex;
+        justify-content: space-between;
+      }
+      .intro,
+      .index-nav {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+      .index-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .index-nav a {
+        margin: 5px;
+        color: #4caf50;
+        font-weight: bold;
+      }
+      .usecase {
+        margin: 20px 0;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: #f6f5f5;
+      }
+      .model {
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+      .reffly {
+        background-color: #eef9e3;
+      }
+      .gpt4 {
+        background-color: #e3f2fd;
+      }
+      .lyra {
+        background-color: #ede7f6;
+      }
+      .songmass {
+        background-color: #fffde7;
+      }
+      .centered-text {
+        text-align: center;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin-bottom: 20px;
+      }
+      h2 {
+        color: #333;
+      }
+      img {
+        display: block;
+        margin: 20px 0;
+        max-width: 100%;
+      }
+      .audio-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fafafa;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 800px;
+      }
+      .audio-block audio {
+        margin-top: 10px;
+        width: 100%;
+      }
+      .model-title {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 10px 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>REFFLY: A Style-Transfer Model for Lyrics Generation</h1>
+      <h2>Examples of the Generated Lyrics for Different Use Cases</h2>
+    </header>
+    <div class="container">
+      <p>
+        This is the demo page for the paper "REFFLY: A Style-Transfer Model for
+        Lyrics Generation".
+      </p>
+      <p>
+        Here we provide examples of the generated lyrics for different use
+        cases, including:
+      </p>
+      <ul>
+        <li><a href="#usecase1">Use Case 1: Craft Lyric from Scratch</a></li>
+        <ul>
+          <li><a href="#reffly1">(a) REFFLY</a></li>
+          <li><a href="#gpt41">(b) GPT-4</a></li>
+          <li><a href="#lyra1">(c) Lyra</a></li>
+          <li><a href="#songmass1">(d) SongMASS</a></li>
+        </ul>
+        <li><a href="#usecase2">Use Case 2: Song Translation</a></li>
+        <ul>
+          <li><a href="#reffly2">(a) REFFLY</a></li>
+          <li><a href="#gpt42">(b) GPT-4</a></li>
+        </ul>
+        <li>
+          <a href="#usecase3">Use Case 3: Full-song Lyric Generation</a>
+        </li>
+        <ul>
+          <li><a href="#reffly3">(a) REFFLY</a></li>
+          <li><a href="#gpt43">(b) GPT-4</a></li>
+        </ul>
+      </ul>
+
+      <div id="usecase1" class="usecase usecase1">
+        <h2>Use Case 1: Craft Lyric from Scratch</h2>
+        <div id="reffly1" class="model reffly">
+          <div class="model-title">Generated lyric of REFFLY</div>
+          <img
+            src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/scratch/reffly/score.png"
+            alt="REFFLY Score"
+            width="800"
+            height="600"
+          />
+          <div class="audio-block">
+            <audio controls>
+              <source
+                src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/scratch/reffly/song.wav"
+                type="audio/wav"
+              />
+            </audio>
+          </div>
+        </div>
+
+        <div id="gpt41" class="model gpt4">
+          <div class="model-title">Generated lyric of GPT-4</div>
+          <img
+            src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/scratch/gpt/score.png"
+            alt="GPT-4 Score"
+            width="800"
+            height="600"
+          />
+          <div class="audio-block">
+            <audio controls>
+              <source
+                src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/scratch/gpt/song.wav"
+                type="audio/wav"
+              />
+            </audio>
+          </div>
+        </div>
+
+        <div id="lyra1" class="model lyra">
+          <div class="model-title">Generated lyric of Lyra</div>
+          <img
+            src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/scratch/lyra/score.png"
+            alt="Lyra Score"
+            width="800"
+            height="600"
+          />
+          <div class="audio-block">
+            <audio controls>
+              <source
+                src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/scratch/lyra/song.wav"
+                type="audio/wav"
+              />
+            </audio>
+          </div>
+        </div>
+
+        <div id="songmass1" class="model songmass">
+          <div class="model-title">Generated lyric of SongMASS</div>
+          <img
+            src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/scratch/songmass/score.png"
+            alt="SongMASS Score"
+            width="800"
+            height="600"
+          />
+          <div class="audio-block">
+            <audio controls>
+              <source
+                src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/scratch/songmass/song.wav"
+                type="audio/wav"
+              />
+            </audio>
+          </div>
+        </div>
+      </div>
+
+      <div id="usecase2" class="usecase usecase2">
+        <h2>Use Case 2: Song Translation</h2>
+        <div class="centered-text">
+          <h2>Unsingable Draft:</h2>
+          <p>In my heart, In your eyes,</p>
+          <p>There, the spring breeze is intoxicating,</p>
+          <p>There, the green grass is like a carpet,</p>
+          <p>Moonlight spreads love,</p>
+          <p>All over the lake surface,</p>
+          <p>The fire of two people,</p>
+          <p>Illuminates the whole night</p>
+        </div>
+
+        <br />
+        <br />
+
+        <div id="reffly2" class="model reffly">
+          <div class="model-title">Revised lyric of REFFLY</div>
+
+          <img
+            src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/translation/reffly/score.png"
+            alt="REFFLY Score"
+            width="800"
+            height="600"
+          />
+          <div class="audio-block">
+            <audio controls>
+              <source
+                src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/translation/reffly/song.wav"
+                type="audio/wav"
+              />
+            </audio>
+          </div>
+        </div>
+
+        <div id="gpt42" class="model gpt4">
+          <div class="model-title">Generated lyric of GPT-4</div>
+          <img
+            src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/translation/gpt/score.png"
+            alt="GPT-4 Score"
+            width="800"
+            height="600"
+          />
+          <div class="audio-block">
+            <audio controls>
+              <source
+                src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/translation/gpt/song.wav"
+                type="audio/wav"
+              />
+            </audio>
+          </div>
+        </div>
+      </div>
+
+      <div id="usecase3" class="usecase usecase3">
+        <h2>Use Case 3: Full-song Lyric Generation</h2>
+
+        <div class="centered-text">
+          <h2>Unsingable Draft:</h2>
+          <p>Morning sun, golden light, Packed my bag, feeling right,</p>
+          <p>Hit the road, sky so blue, Every turn, something new,</p>
+          <p>With each step, dreams ignite, Journey of joy, pure delight.</p>
+          <p>Smiling wide, heart so free, In the rhythm, just like me,</p>
+          <p>
+            Where dreams and joy agree. Met a girl, bright and kind, Shared a
+            laugh,
+          </p>
+          <p>left worries behind, Through the fields, hand in hand,</p>
+          <p>Found our place, in this land, Every moment, felt so true,</p>
+          <p>Journey of joy, me and you. Smiling wide, heart so free,</p>
+          <p>In the rhythm, just like me, Where dreams and joy agree.</p>
+        </div>
+
+        <br />
+        <br />
+
+        <div id="reffly3" class="model reffly">
+          <div class="model-title">Revised lyric of REFFLY</div>
+          <img
+            src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/structure_new/reffly/score.png"
+            alt="REFFLY Score"
+            width="800"
+            height="1000"
+          />
+          <img
+            src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/structure_new/reffly/score_2.png"
+            alt="REFFLY Score"
+            width="800"
+            height="300"
+          />
+          <div class="audio-block">
+            <audio controls>
+              <source
+                src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/structure_new/reffly/song.wav"
+                type="audio/wav"
+              />
+            </audio>
+          </div>
+        </div>
+
+        <div id="gpt43" class="model gpt4">
+          <div class="model-title">Generated lyric of GPT-4</div>
+          <img
+            src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/structure_new/gpt/score.png"
+            alt="GPT-4 Score"
+            width="800"
+            height="1000"
+          />
+          <img
+            src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/structure_new/gpt/score_2.png"
+            alt="GPT-4 Score"
+            width="800"
+            height="300"
+          />
+          <div class="audio-block">
+            <audio controls>
+              <source
+                src="https://github.com/Melody2lyrics/demo/raw/main/meta_data/structure_new/gpt/song.wav"
+                type="audio/wav"
+              />
+            </audio>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
